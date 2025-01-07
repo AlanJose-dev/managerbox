@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items_in_stocks', function (Blueprint $table) {
+        Schema::create('items_in_stock', function (Blueprint $table) {
             $table->id();
             $table->string('sku_code', 12)->unique();
             $table->string('barcode', 50)->unique();
@@ -29,8 +29,6 @@ return new class extends Migration
             ->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained('users', 'id')
             ->noActionOnDelete()->cascadeOnUpdate();
-            $table->foreignId('supplier_id')->nullable()->constrained('suppliers', 'id')
-            ->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
             $table->softDeletes();
             $table->index(['sku_code', 'barcode', 'name']);

@@ -17,7 +17,7 @@ return new class extends Migration
             ->pluck('value')->toArray());
             $table->float('quantity');
             $table->text('observations')->nullable();
-            $table->foreignId('item_id')->constrained('items', 'id')
+            $table->foreignId('item_id')->constrained('items_in_stock', 'id')
             ->noActionOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained('users', 'id')
             ->noActionOnDelete()->cascadeOnUpdate();
