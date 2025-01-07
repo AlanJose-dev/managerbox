@@ -29,8 +29,6 @@ return new class extends Migration
             ->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained('users', 'id')
             ->noActionOnDelete()->cascadeOnUpdate();
-            $table->foreignId('category_id')->nullable()->constrained('categories', 'id')
-            ->nullOnDelete()->cascadeOnUpdate();
             $table->foreignId('supplier_id')->nullable()->constrained('suppliers', 'id')
             ->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
