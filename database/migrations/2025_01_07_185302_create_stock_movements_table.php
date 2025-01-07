@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('observations')->nullable();
             $table->foreignId('item_id')->constrained('items', 'id')
             ->noActionOnDelete()->cascadeOnUpdate();
-            $table->foreignId('responsible_id')->constrained('users', 'id')
+            $table->foreignId('user_id')->constrained('users', 'id')
             ->noActionOnDelete()->cascadeOnUpdate();
             $table->foreignId('supplier_id')->nullable()->constrained('suppliers', 'id')
             ->nullOnDelete()->cascadeOnUpdate();

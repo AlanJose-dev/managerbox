@@ -20,9 +20,7 @@ return new class extends Migration
             $table->string('email', 255)->unique();
             $table->date('foundation_date')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->foreignId('metier_id')->constrained('metiers', 'id')
-            ->noActionOnDelete()->cascadeOnUpdate();
-            $table->foreignId('responsible_id')->constrained('users', 'id')
+            $table->foreignId('user_id')->constrained('users', 'id')
             ->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
             $table->softDeletes();
