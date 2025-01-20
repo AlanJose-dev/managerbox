@@ -18,6 +18,12 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->char('cpf', 11)->unique()->nullable();
+            $table->char('phone_number', 13)->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->timestamp('last_activity')->nullable();
+            $table->string('profile_picture')->nullable();
+            $table->index(['email', 'cpf']);
             $table->timestamps();
         });
 
