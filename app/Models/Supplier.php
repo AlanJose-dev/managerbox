@@ -26,4 +26,29 @@ class Supplier extends Model
     protected $casts = [
         'is_active' => 'boolean'
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
+
+    public function responsibleByRegistering()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function address()
+    {
+        return $this->morphOne(Address::class, 'addressable');
+    }
+
+    public function itemsInStock()
+    {
+        return $this->hasMany(ItemInStock::class, 'supplier_id');
+    }
+
+    public function stockMovements()
+    {
+        return $this->hasMany(StockMovement::class, 'supplier_id');
+    }
 }

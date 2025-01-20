@@ -25,4 +25,24 @@ class StockMovement extends Model
     protected $casts = [
         'quantity' => 'decimal:2',
     ];
+
+    public function itemInStock()
+    {
+        return $this->belongsTo(ItemInStock::class, 'item_in_stock_id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
+
+    public function responsibleByRegistering()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class, 'supplier_id');
+    }
 }

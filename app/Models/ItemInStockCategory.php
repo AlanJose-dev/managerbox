@@ -23,4 +23,19 @@ class ItemInStockCategory extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
+
+    public function responsibleByRegistering()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function itemsInStock()
+    {
+        return $this->belongsTo(ItemInStock::class, 'item_in_stock_id');
+    }
 }

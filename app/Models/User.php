@@ -55,4 +55,35 @@ use Illuminate\Notifications\Notifiable;
             'is_active' => 'boolean',
         ];
     }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
+    }
+
+    public function itsResponsibleByACompany()
+    {
+        return $this->belongsTo(Company::class, 'company_id')
+        ->whereColumn('responsible_id', 'users.company_id');
+    }
+
+    public function address()
+    {
+        return $this->morphOne(Address::class, 'addressable');
+    }
+
+    public function registeredItemsInStock()
+    {
+        return $this->hasMany(ItemInStock::class, 'user_id');
+    }
+
+    public function movementsAsResponsible()
+    {
+        return $this->hasMany(StockMovement::class, 'user_id');
+    }
+
+    public function registeredSuppliers()
+    {
+        return $this->hasMany(Supplier::class, 'user_id');
+    }
 }

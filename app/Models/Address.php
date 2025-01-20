@@ -24,4 +24,24 @@ class Address extends Model
         'addressable_type',
         'addressable_id',
     ];
+
+    public function addressable()
+    {
+        return $this->morphTo('addressable');
+    }
+
+    public function scopeCompany($query)
+    {
+        return $query->where('addressable_type', Company::class);
+    }
+
+    public function scopeUser($query)
+    {
+        return $query->where('addressable_type', User::class);
+    }
+
+    public function scopeSupplier($query)
+    {
+        return $query->where('addressable_type', Supplier::class);
+    }
 }

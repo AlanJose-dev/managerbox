@@ -28,4 +28,29 @@ class Company extends Model
         'foundation_date' => 'date',
         'is_active' => 'boolean',
     ];
+
+    public function metier()
+    {
+        return $this->belongsTo(Metier::class, 'metier_id');
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function address()
+    {
+        return $this->morphOne(Address::class, 'addressable');
+    }
+
+    public function itemsInStock()
+    {
+        return $this->hasMany(ItemInStock::class, 'company_id');
+    }
+
+    public function stockMovements()
+    {
+        return $this->hasMany(StockMovement::class, 'company_id');
+    }
 }
