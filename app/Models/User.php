@@ -29,6 +29,7 @@ use Illuminate\Notifications\Notifiable;
         'last_activity',
         'profile_picture',
         'company_id',
+        'is_responsible_by_company'
     ];
 
     /**
@@ -53,18 +54,13 @@ use Illuminate\Notifications\Notifiable;
             'last_activity' => 'datetime',
             'password' => 'hashed',
             'is_active' => 'boolean',
+            'is_responsible_by_company' => 'boolean',
         ];
     }
 
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id');
-    }
-
-    public function itsResponsibleByACompany()
-    {
-        return $this->belongsTo(Company::class, 'company_id')
-        ->whereColumn('responsible_id', 'users.company_id');
     }
 
     public function address()

@@ -28,13 +28,12 @@ return new class extends Migration
         Schema::table('companies', function (Blueprint $table) {
             $table->foreignId('metier_id')->after('is_active')->constrained('metiers', 'id')
             ->restrictOnDelete()->cascadeOnUpdate();
-            $table->foreignId('user_id')->after('metier_id')->constrained('users', 'id')
-            ->restrictOnDelete()->cascadeOnUpdate();
         });
 
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('company_id')->after('profile_picture')->constrained('companies', 'id')
             ->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unique(['company_id', 'is_responsible_by_company']);
         });
     }
 

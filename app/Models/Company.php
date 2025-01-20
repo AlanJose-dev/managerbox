@@ -17,11 +17,10 @@ class Company extends Model
         'cnpj',
         'state_registration',
         'phone_number',
-        'email',
+        'contact_email',
         'foundation_date',
         'is_active',
         'metier_id',
-        'user_id',
     ];
 
     protected $casts = [
@@ -36,8 +35,10 @@ class Company extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->hasOne(User::class, 'company_id')
+        ->where('is_responsible_by_company', true);
     }
+
 
     public function address()
     {
