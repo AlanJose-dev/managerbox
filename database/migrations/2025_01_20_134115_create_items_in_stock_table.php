@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->index(['sku_code', 'barcode', 'name']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('items_in_stock', function (Blueprint $table) {

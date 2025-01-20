@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->index(['email', 'name', 'cnpj']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('suppliers', function (Blueprint $table) {

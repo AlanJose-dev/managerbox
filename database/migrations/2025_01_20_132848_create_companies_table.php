@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->index(['cnpj', 'state_registration']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('companies', function (Blueprint $table) {
