@@ -2,5 +2,6 @@
 
 return [
     App\Providers\AppServiceProvider::class,
-    \Spatie\Permission\PermissionServiceProvider::class,
+    App\Providers\Macros\StringMacroServiceProvider::class,
+    Spatie\Permission\PermissionServiceProvider::class,
 ];
