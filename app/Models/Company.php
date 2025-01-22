@@ -35,8 +35,9 @@ class Company extends Model
 
     public function owner()
     {
-        return $this->hasOne(User::class, 'company_id')
-        ->where('is_responsible_by_company', true);
+        return $this->hasOne(User::class, 'company_id')->whereHas('roles', function ($query) {
+            $query->where('name', 'administrator');
+        });
     }
 
 

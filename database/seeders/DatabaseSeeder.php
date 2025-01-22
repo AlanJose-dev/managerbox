@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //Por enquanto está apenas o de metier.
         $this->call([
             MetierSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }
