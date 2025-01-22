@@ -14,6 +14,8 @@ use Illuminate\Notifications\Notifiable;
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, HasRoles, SoftDeletes, Notifiable;
 
+     protected $guard_name = 'web';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -53,7 +55,6 @@ use Illuminate\Notifications\Notifiable;
             'last_activity' => 'datetime',
             'password' => 'hashed',
             'is_active' => 'boolean',
-            'is_responsible_by_company' => 'boolean',
         ];
     }
 

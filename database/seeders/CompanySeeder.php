@@ -18,7 +18,7 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         Company::factory(20)->create([
-            'metier_id' => fake()->randomElement(Metier::inRandomOrder()->pluck('id')->toArray()),
+            'metier_id' => Metier::all()->random()->id,
         ])->each(function ($company) {
 
             Address::factory()->create([
@@ -29,7 +29,7 @@ class CompanySeeder extends Seeder
             //Criando administrador.
             User::factory()->create([
                 'company_id' => $company->id,
-            ])->each(function ($user, $company) {
+            ])->each(function ($user) use ($company) {
                 $user->assignRole('administrator');
 
                 Address::factory()->create([

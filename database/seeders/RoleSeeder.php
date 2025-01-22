@@ -54,7 +54,7 @@ class RoleSeeder extends Seeder
         $roles['stock_manager']->givePermissionTo($permissions['manage_stock_movements']);
         $roles['stock_manager']->givePermissionTo($permissions['manage_stock_categories']);
         $roles['stock_manager']->givePermissionTo($permissions['view_stock_basic_reports']);
-        $roles['stock_manager']->givePermissionTo($permissions['view_stock_advanced_reports_reports']);
+        $roles['stock_manager']->givePermissionTo($permissions['view_stock_advanced_reports']);
         $roles['stock_manager']->givePermissionTo($permissions['manage_personal_configs']);
 
         //Atribuindo permissões do operador de estoque.

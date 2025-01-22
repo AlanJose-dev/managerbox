@@ -12,6 +12,8 @@ class Company extends Model
 
     protected $table = 'companies';
 
+    protected $guard_name = 'web';
+
     protected $fillable = [
         'name',
         'cnpj',

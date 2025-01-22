@@ -21,13 +21,13 @@ class CompanyFactory extends Factory
         $companyFaker = new \Faker\Provider\pt_BR\Company(fake());
         return [
             'name' => $companyFaker->company(),
-            'cnpj' => $companyFaker->cnpj(false),
-            'state_registration' => fake()->randomNumber(9),
+            'cnpj' => $companyFaker->unique()->cnpj(false),
+            'state_registration' => fake()->unique()->randomNumber(9),
             'phone_number' => Str::unformattedPhoneNumber(fake()->phoneNumber()),
             'contact_email' => fake()->unique()->email(),
             'foundation_date' => fake()->date(),
             'is_active' => fake()->boolean(),
-            'metier_id' => Metier::factory(),
+            //Não há metier_id porque o registro é obtido no seeder.
         ];
     }
 }

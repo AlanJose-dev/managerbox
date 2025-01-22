@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Metier extends Model
 {
-    use HasFactory;
-
     protected $table = 'metiers';
 
     protected $fillable = [

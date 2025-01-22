@@ -21,8 +21,8 @@ class SupplierFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'cnpj' => fake()->cnpj(false),
-            'cpf' => fake()->cpf(false),
+            'cnpj' => fake()->unique()->cnpj(false),
+            'cpf' => fake()->unique()->cpf(false),
             'email' => fake()->unique()->email(),
             'phone_number' => Str::unformattedPhoneNumber(fake()->phoneNumber()),
             'is_active' => fake()->boolean(),
