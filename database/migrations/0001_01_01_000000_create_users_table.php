@@ -23,7 +23,6 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamp('last_activity')->nullable();
             $table->string('profile_picture')->nullable();
-            $table->boolean('is_responsible_by_company')->default(false);
             $table->index(['email', 'cpf']);
             $table->timestamps();
             $table->softDeletes();

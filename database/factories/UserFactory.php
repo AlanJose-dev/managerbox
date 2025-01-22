@@ -36,7 +36,6 @@ class UserFactory extends Factory
             'is_active' => fake()->boolean(),
             'last_activity' => fake()->dateTime(),
             'company_id' => Company::factory(),
-            'is_responsible_by_company' => fake()->boolean(10),
         ];
     }
 

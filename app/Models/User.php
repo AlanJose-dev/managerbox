@@ -29,7 +29,6 @@ use Illuminate\Notifications\Notifiable;
         'last_activity',
         'profile_picture',
         'company_id',
-        'is_responsible_by_company'
     ];
 
     /**
